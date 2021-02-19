@@ -1,5 +1,6 @@
 require('dotenv').config();
 privateKey = process.env.PRIVATE_KEY;
+clientAddress = process.env.CLIENT_ADDRESS;
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 const newMessage = require('./socket_controllers/new_message_controller');
@@ -15,7 +16,7 @@ const socket = (server)=>{
 
   const io = require('socket.io')(server,{
     cors: {
-      origin: "http://192.168.0.6:3000",
+      origin: clientAddress,
       methods: ["GET", "POST"]
     },
      pingInterval : 10000,
@@ -52,16 +53,16 @@ const socket = (server)=>{
         }
 
         ConnectedUsers.add(newUser);
-        ConnectedUsers.disconnected.map((el)=>{io.to(el.connection_id).emit('loged_out');console.log(el.connection_id)});
+        ConnectedUsers.disconnected.map((el)=>{io.to(el.connection_id).emit('loged_out');});
         ConnectedUsers.clearDisconnect();
         socket.emit('id',newUser);
         const clientOnlineList = ConnectedUsers.clientUsers;
         io.emit('online_users',clientOnlineList);
       }
 
+
       socket.on('log_out',(user)=>{
         ConnectedUsers.remove(user);
-        console.log(ConnectedUsers.users);
       })
 
 

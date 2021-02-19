@@ -24,7 +24,6 @@ class OnlineUsers {
   }
 
   add(newUser){
-    console.log(this.usersArray.concat(newUser));
     const existUser = this.usersArray.find((el)=>(el._id === newUser._id));
     const filteredUsers = this.usersArray.filter((el)=>(el._id !== newUser._id));
 

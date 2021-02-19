@@ -7,7 +7,7 @@ const newStyle = makeStyles(()=>({
     padding : 0
   },
   read : {
-    height : '5em',
+    minHeight : '5em',
     borderBottom: '1px solid #30383d',
     padding : 0,
     cursor : 'pointer',
@@ -17,7 +17,7 @@ const newStyle = makeStyles(()=>({
   },
 
   unread : {
-    height : '5em',
+    minHeight : '5em',
     borderBottom: '1px solid #30383d',
     fontSize : '1.1em',
     padding : 0,
@@ -28,6 +28,7 @@ const newStyle = makeStyles(()=>({
     '&:hover' : {
       backgroundColor : '#323739'
     }
+
   },
 
   newMessages : {
@@ -61,7 +62,7 @@ const ConversationItem = ({conversation,setActiveChat,loadMessages,id,readConver
           className = {style.read}
         >
           {_.map(conversation.partecipants,(el)=>(<p>{el.username}</p>))}
-          <small>{conversation.conversation.message}</small>
+          {conversation.conversation.message.length < 40 ? <small>{conversation.conversation.message}</small> : <small>{conversation.conversation.message.slice(0,37) + '...'}</small> }
 
 
         </Grid>
@@ -82,7 +83,7 @@ const ConversationItem = ({conversation,setActiveChat,loadMessages,id,readConver
             direction = 'column'
           >
               {_.map(conversation.partecipants,(el)=>(<p>{el.username}</p>))}
-              <small>{conversation.conversation.message}</small>
+              {conversation.conversation.message.length < 40 ? <small>{conversation.conversation.message}</small> : <small>{conversation.conversation.message.slice(0,37) + '...'}</small> }
           </Grid>
 
 

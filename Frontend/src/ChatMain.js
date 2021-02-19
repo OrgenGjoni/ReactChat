@@ -122,7 +122,7 @@ const ChatPage = ({width})=>{
       }
 
       if (( window.innerWidth >= 800 ) && ( window.innerHeight >= 600 )){
-        alert('stuff');
+
         notification.play();
       }
 

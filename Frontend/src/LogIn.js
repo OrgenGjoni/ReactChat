@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import {makeStyles,Container,Paper,Grid,Typography,TextField,Button} from '@material-ui/core';
 import {Alert} from '@material-ui/lab';
 import {useHistory,Link} from 'react-router-dom';
+import {AiOutlineUser} from 'react-icons/ai';
 
 const newStyle = makeStyles(()=>({
   container : {
@@ -13,7 +14,9 @@ const newStyle = makeStyles(()=>({
   },
   tab : {
     padding : '5em',
-    maxWidth : 400,
+    width : '80%',
+    height : '100%',
+    minWidth : 300,
     margin : 'auto'
 
   },
@@ -22,7 +25,10 @@ const newStyle = makeStyles(()=>({
     flexDirection: 'column',
     alignItems: 'center',
     justify : 'center',
-    padding : 20
+    padding : 20,
+    margin : 'auto',
+    minWidth : 300
+
 
   },
   link : {
@@ -95,13 +101,15 @@ const LogIn = ()=>{
   return(
     <Container maxWidth='xl' component = 'main' className = {style.container}>
       <Grid className = {style.tab}
+        direction = 'row'
+        container
         justify = 'center'
         alignItems = 'center'
       >
         <Paper>
           <form>
               <div className = {style.paper}>
-
+                  <AiOutlineUser size = {30}/>
                   <Typography component="h1" variant="h5">
                     Sign in
                   </Typography>

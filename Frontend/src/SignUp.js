@@ -3,6 +3,7 @@ import {makeStyles,Container,Paper,Grid,Typography,TextField,Button,CircularProg
 import {Alert} from '@material-ui/lab/';
 import {useHistory} from 'react-router-dom';
 import _ from 'lodash';
+import {AiOutlineUserAdd} from 'react-icons/ai';
 
 const newStyle = makeStyles(()=>({
   container : {
@@ -14,8 +15,10 @@ const newStyle = makeStyles(()=>({
   tab : {
 
     padding : '5em',
-    margin : 'auto',
-    maxWidth : 450,
+    width : '40%',
+    height : '100%',
+    minWidth : 300,
+    margin : 'auto'
 
   },
   paper : {
@@ -24,7 +27,8 @@ const newStyle = makeStyles(()=>({
     alignItems: 'center',
     justify : 'center',
     padding : 20,
-
+    margin : 'auto',
+    minWidth : 400
 
   },
   link : {
@@ -95,7 +99,7 @@ const SignUp = ()=>{
     }else{
       const newAlert = _.filter(alert,(el)=>{return el !== alertList.match})
       setAlert(newAlert);
-      //setMatch(false);
+      
     }
   }
 
@@ -155,7 +159,7 @@ const SignUp = ()=>{
   }
 
 
-  
+
 
   useEffect(()=>{
     let tOut;
@@ -164,19 +168,20 @@ const SignUp = ()=>{
         tOut = setTimeout(reDir,3000);
     }
 
-    //return clearTimeout(tOut)
+
   },[response]);
 
   return(
     <Container maxWidth='xl' component = 'main' className = {style.container}>
       <Grid className = {style.tab}
+        container
         justify = 'center'
         alignItems = 'center'
       >
-        <Paper>
+        <Paper >
           <form>
               <div className = {style.paper}>
-
+                  <AiOutlineUserAdd size = {30} />
                   <Typography component="h1" variant="h5">
                     Sign Up
                   </Typography>

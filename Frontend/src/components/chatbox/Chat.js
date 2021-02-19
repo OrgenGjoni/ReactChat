@@ -22,7 +22,7 @@ const newStyle = makeStyles(()=>({
     justifyContent : 'flex-end',
     flexWrap : 'nowrap',
     backgroundColor : 'white',
-  //  height : 500
+
 
   },
   sent : {

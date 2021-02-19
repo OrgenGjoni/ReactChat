@@ -12,12 +12,6 @@ const newStyle = makeStyles(()=>({
     backgroundColor : '#262d31',
     height : '100vh',
     flexWrap : 'nowrap'
-  },
-  chatBoxMobile : {
-    width : '99vw',
-    backgroundColor : '#262d31',
-    height : '100vh',
-    flexWrap : 'nowrap'
   }
 
 }))

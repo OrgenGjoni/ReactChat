@@ -85,6 +85,7 @@ const SideBarList = ()=>{
 
     const closeSlide = ()=>{
       dispatch(toggleSidebar());
+      dispatch(clearNotifications()); 
     }
 
 

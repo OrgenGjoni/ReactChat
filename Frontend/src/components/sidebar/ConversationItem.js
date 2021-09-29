@@ -15,7 +15,6 @@ const newStyle = makeStyles(()=>({
       backgroundColor : '#323739'
     }
   },
-
   unread : {
     minHeight : '5em',
     borderBottom: '1px solid #30383d',
@@ -23,14 +22,11 @@ const newStyle = makeStyles(()=>({
     padding : 0,
     backgroundColor : '#1a2125',
     color : 'white',
-
     cursor : 'pointer',
     '&:hover' : {
       backgroundColor : '#323739'
     }
-
   },
-
   newMessages : {
       color : 'green'
   }
@@ -39,8 +35,6 @@ const newStyle = makeStyles(()=>({
 const ConversationItem = ({conversation,setActiveChat,loadMessages,id,readConversation,closeSlide})=>{
 
   const style = newStyle();
-
-
   const handleClick = ()=>{
 
         setActiveChat(conversation);
@@ -49,22 +43,19 @@ const ConversationItem = ({conversation,setActiveChat,loadMessages,id,readConver
         closeSlide();
   }
 
-
-
-
-
   const Read = ()=>(
         <Grid
           container
           direction = 'column'
-          justify = 'flex-start'
+          justifyContent = 'flex-start'
           alignItmes = 'center'
           className = {style.read}
         >
-          {_.map(conversation.partecipants,(el)=>(<p>{el.username}</p>))}
-          {conversation.conversation.message.length < 40 ? <small>{conversation.conversation.message}</small> : <small>{conversation.conversation.message.slice(0,37) + '...'}</small> }
-
-
+          {_.map(conversation.partecipants,(el,idx)=>(<p key={idx}>{el.username}</p>))}
+          {conversation.conversation.message.length < 40 ? 
+            <small>{conversation.conversation.message}</small> : 
+            <small>{conversation.conversation.message.slice(0,37) + '...'}</small> 
+          }
         </Grid>
   );
 
@@ -73,7 +64,7 @@ const ConversationItem = ({conversation,setActiveChat,loadMessages,id,readConver
     <Grid
       container
       direction = 'row'
-      justify = 'flex-start'
+      justifyContent = 'flex-start'
       alignItmes = 'center'
       className = {style.unread}
     >
@@ -82,31 +73,23 @@ const ConversationItem = ({conversation,setActiveChat,loadMessages,id,readConver
             style = {{maxWidth : '85%'}}
             direction = 'column'
           >
-              {_.map(conversation.partecipants,(el)=>(<p>{el.username}</p>))}
+              {_.map(conversation.partecipants,(el,idx)=>(<p key={idx}>{el.username}</p>))}
               {conversation.conversation.message.length < 40 ? <small>{conversation.conversation.message}</small> : <small>{conversation.conversation.message.slice(0,37) + '...'}</small> }
           </Grid>
-
 
           <Grid
             container
             style = {{width : '15%',paddingBottom : 10}}
             direction = 'column'
-            justify = 'flex-end'
+            justifyContent = 'flex-end'
             alignItmes = 'flex-end'
           >
               <div style = {{backgroundColor : 'blue',borderRadius : 25,height : '1.1em',width : '1.1em',textAlign : 'center'}}>
-
                 <Badge badgeContent={conversation.unread_mesages} color="primary"/>
               </div>
-
           </Grid>
-
-
     </Grid>
-  )
-
-
-
+  );
 
     return(
       <Grid

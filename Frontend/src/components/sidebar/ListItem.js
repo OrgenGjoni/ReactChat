@@ -29,7 +29,7 @@ const ListItem = ({user,selectOnlineUser,loadMessages,closeSlide})=>{
           container
           direction = 'row'
           alignItems = 'center'
-          justify = 'flex-start'
+          justifyContent = 'flex-start'
           className = {style.container}
           onClick = {handleClick}
         >

@@ -25,7 +25,7 @@ const style = newStyle();
     <Grid
     container
     direction = 'column'
-    justify = 'flex-end'
+    justifyContent = 'flex-end'
     className = {style.chatBoxFull}
     >
 

@@ -39,7 +39,7 @@ const newStyle = makeStyles(()=>({
     color : 'white'
   }
 
-}))
+}));
 
 
 const Chat = ()=>{
@@ -56,8 +56,7 @@ const Chat = ()=>{
         <Grid
           container
           direction = 'row'
-          justify = 'flex-end'
-
+          justifyContent = 'flex-end'
         >
           <Paper className = {style.sent}>
             <p>{el.message}</p>
@@ -70,10 +69,10 @@ const Chat = ()=>{
         <Grid
           container
           direction = 'row'
-          justify = 'flex-start'
+          justifyContent = 'flex-start'
         >
           <Paper className = {style.recieved}>
-          <p>{el.message}</p>
+            <p>{el.message}</p>
           </Paper>
         </Grid>
       )
@@ -91,22 +90,15 @@ const Chat = ()=>{
 
     <div className = {style.container} ref = {divRef}>
       <div style = {{maxHeight : '100%'}}>
-
         <Grid
           container
           direction = 'column'
-          justify = 'flex-end'
-
+          justifyContent = 'flex-end'
         >
-
             {messages.map((el)=>(msgItem(el)))}
-          </Grid>
-
-
-
-
-        </div>
+        </Grid>
       </div>
+    </div>
   );
 }
 

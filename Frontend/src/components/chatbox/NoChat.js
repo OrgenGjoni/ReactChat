@@ -25,17 +25,17 @@ const NoChat = ()=>{
     container
     className = {style.container}
     alignItems = 'flex-start'
-    justify = 'center'
+    justifyContent = 'center'
     >
       <Grid container
         direction = 'row'
         alignItems = 'center'
-        justify = 'center'
+        justifyContent = 'center'
         style = {{ margin : 'auto'}}
       >
           <Grid container
           direction = 'column'
-          justify = 'center'
+          justifyContent = 'center'
           alignItems = 'center'
           >
           <BsChatSquareDots size = {'8em'} color = {'#a8c0ba'}/>

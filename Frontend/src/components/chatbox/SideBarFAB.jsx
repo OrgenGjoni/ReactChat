@@ -13,7 +13,6 @@ const newStyle = makeStyles(()=>({
   }
 }))
 
-
 const SideBarFAB = ()=>{
   const dispatch = useDispatch();
   const style = newStyle();

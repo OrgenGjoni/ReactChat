@@ -7,9 +7,6 @@ import _ from 'lodash';
 import socket from '../../socket';
 
 const newStyle = makeStyles(()=>({
-  container : {
-
-  },
   input : {
     fontSize : '1.2em',
     color : 'white'

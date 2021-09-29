@@ -3,7 +3,6 @@ import {makeStyles,Grid} from '@material-ui/core';
 import SideBarList from './SideBarList';
 import SideBarHeader from './SideBarHeader';
 
-
 const newStyle = makeStyles(()=>({
   sidebar : {
     width : '25%',
@@ -12,7 +11,8 @@ const newStyle = makeStyles(()=>({
     color : '#a8c0ba',
     padding : 10
   }
-}))
+}));
+
 const SideBarContainer = ()=>{
 const style = newStyle();
 
@@ -20,7 +20,7 @@ const style = newStyle();
     <Grid
     container
     direction = 'column'
-    justify = 'flex-start'
+    justifyContent = 'flex-start'
     className = {style.sidebar}
     >
       <SideBarHeader />

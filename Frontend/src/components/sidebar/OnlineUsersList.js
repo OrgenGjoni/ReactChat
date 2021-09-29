@@ -10,15 +10,12 @@ const newStyle = makeStyles(()=>({
     marginTop : 0,
     borderRadius : 5
   }
-}))
-
+}));
 
 const OnlineUsersList = ({closeSlide,onlineUsers,id,selectOnlineUser,loadMessages})=>{
 
   const style = newStyle();
-
   const showUSers = (el)=>{
-
     if(el.user_id !== id._id){
       return <ListItem user = {el} selectOnlineUser = {selectOnlineUser} loadMessages = {loadMessages} closeSlide = {closeSlide}/>
     }else{
@@ -26,15 +23,11 @@ const OnlineUsersList = ({closeSlide,onlineUsers,id,selectOnlineUser,loadMessage
     }
   }
 
-
-
   return(
     <Grid container
       className = {style.container}
     >
-
         {onlineUsers.map((el)=>(showUSers(el)))}
-
 
     </Grid>
   );

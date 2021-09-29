@@ -40,12 +40,13 @@ const handleToggle = ()=>{
 
     <SwipeableDrawer
       open = {open}
+      onOpen = {()=>{}}
       onClose = {handleToggle}
     >
           <Grid
           container
           direction = 'column'
-          justify = 'flex-start'
+          justifyContent = 'flex-start'
           className = {style.sidebar}
           >
             <SideBarHeader />

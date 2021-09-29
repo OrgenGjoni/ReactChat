@@ -14,6 +14,7 @@ import ChatBoxContainer from './components/chatbox/ChatBoxContainer';
 import SideBarContainerSM from './components/sidebar/SideBarContainerSM';
 import ChatBoxContainerSM from './components/chatbox/ChatBoxContainerSM';
 const SERVER = process.env.REACT_APP_SERVER_ADDRESS;
+const notification = new Audio('notification.mp3');
 
 const newStyle = makeStyles(()=>({
   container : {
@@ -22,34 +23,20 @@ const newStyle = makeStyles(()=>({
     overflowY : 'hidden',
 
   }
-}))
-
-
-const notification = new Audio('notification.mp3');
-
+}));
 
 const ChatPage = ({width})=>{
-
-
-
   const dispatch = useDispatch();
   const [activeChat,activeUser,conversations_list,messages,id,slideOpen] = useSelector((state)=>[state.activeChat,state.activeUser,state.conversations,state.messages,state.id,state.slideOpen]);
   const history = useHistory();
   const style = newStyle();
 
-
-
-
   const addNewConversation = (conv)=>{
-
-
     const newConv = [conv].concat(conversations_list);
     dispatch(setConversationsList(newConv));
-
     const part = _.find(conv.partecipants, (part)=>(part.username === activeUser.username));
 
-
-    if(typeof part != 'undefined'){
+    if(typeof part !== 'undefined'){
        dispatch(setMessages([conv.conversation]));
        dispatch(setActiveChat(conv));
     }
@@ -162,7 +149,7 @@ const ChatPage = ({width})=>{
           <Grid
             container
             direction = 'row'
-            justify = 'center'
+            justifyContent = 'center'
           >
               {(width === 'xs' || width === 'sm' || width === 'ms' )  ? <SideBarContainerSM /> : <SideBarContainer />}
               {(width === 'xs' || width === 'sm' || width === 'ms' )  ? <ChatBoxContainerSM /> : <ChatBoxContainer />}

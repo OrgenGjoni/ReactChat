@@ -63,8 +63,6 @@ const SignUp = ()=>{
   const [alert,setAlert] = useState([]);
   const [response,setResponse] = useState([]);
 
-
-
   const usernameChange = (e)=>{
     if(e.target.value.length < 6 ){
       setUsername(false);
@@ -107,7 +105,7 @@ const SignUp = ()=>{
 
     const resAlert = _.find(res,(el)=>{return el.msg === alertList.taken_username});
 
-    if(typeof resAlert != 'undefined'){
+    if(typeof resAlert !== 'undefined'){
       const newAlert = _.filter(alert,(el)=>{return el !== alertList.taken_username})
       setAlert([...newAlert,alertList.taken_username]);
     }else{
@@ -162,10 +160,9 @@ const SignUp = ()=>{
 
 
   useEffect(()=>{
-    let tOut;
     if(response.message === 'New account successfully created'){
         const reDir = ()=>{ history.push('/')};
-        tOut = setTimeout(reDir,3000);
+        setTimeout(reDir,3000);
     }
 
 
@@ -175,7 +172,7 @@ const SignUp = ()=>{
     <Container maxWidth='xl' component = 'main' className = {style.container}>
       <Grid className = {style.tab}
         container
-        justify = 'center'
+        justifyContent = 'center'
         alignItems = 'center'
       >
         <Paper >
@@ -228,8 +225,8 @@ const SignUp = ()=>{
 
 
                   {alert.map((element)=>showAlerts(element))}
-                  {typeof response.message != 'undefined' && <CircularProgress size = {25}/>}
-                  {typeof response.message != 'undefined' && <Alert severity="success" >{response.message}</Alert>}
+                  {typeof response.message !== 'undefined' && <CircularProgress size = {25}/>}
+                  {typeof response.message !== 'undefined' && <Alert severity="success" >{response.message}</Alert>}
 
                   <Button
                   type="submit"

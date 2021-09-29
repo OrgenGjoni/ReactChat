@@ -10,7 +10,6 @@ const newStyle = makeStyles(()=>({
     width : '100vw',
     height : '100vh',
     backgroundColor : '#2d6a4f'
-
   },
   tab : {
     padding : '5em',
@@ -18,7 +17,6 @@ const newStyle = makeStyles(()=>({
     height : '100%',
     minWidth : 300,
     margin : 'auto'
-
   },
   paper : {
     display: 'flex',
@@ -28,8 +26,6 @@ const newStyle = makeStyles(()=>({
     padding : 20,
     margin : 'auto',
     minWidth : 300
-
-
   },
   link : {
     fontSize : '0.8em',
@@ -40,8 +36,8 @@ const newStyle = makeStyles(()=>({
   button : {
     width : '10em'
   }
-
-}));
+  })
+);
 
 const LogIn = ()=>{
 
@@ -73,7 +69,7 @@ const LogIn = ()=>{
     })
       .then((res)=>{return res.json()})
       .then((res)=>{
-          if(typeof res.token != 'undefined'){
+          if(typeof res.token !== 'undefined'){
             localStorage.setItem('token',res.token);
             history.push('/chat');
           }else{
@@ -103,7 +99,7 @@ const LogIn = ()=>{
       <Grid className = {style.tab}
         direction = 'row'
         container
-        justify = 'center'
+        justifyContent = 'center'
         alignItems = 'center'
       >
         <Paper>

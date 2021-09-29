@@ -29,18 +29,13 @@ const SideBarList = ()=>{
   const dispatch = useDispatch();
   const style = newStyle();
   const [value,setValue] = useState(1);
-
-
   const setActive = (payload)=>{
     dispatch(setActiveChat(payload))
   };
 
-
   const loadMsg = (id)=>{
-
     dispatch(loadMessages(SERVER + '/messages/' + localStorage.token + '/' + id))
   }
-
 
   const selectOnlineUser = (payload)=>{
 
@@ -88,22 +83,16 @@ const SideBarList = ()=>{
       dispatch(clearNotifications()); 
     }
 
-
-
-
-
-
-
-  const showConversations = (el)=>{
-    return(
-      <ConversationItem conversation = {el} closeSlide = {closeSlide} setActiveChat = {setActive} loadMessages = {loadMsg} id ={id} readConversation = {readConversation}/>
-    )
-  }
+    const showConversations = (el)=>{
+      return(
+        <ConversationItem conversation = {el} closeSlide = {closeSlide} setActiveChat = {setActive} loadMessages = {loadMsg} id ={id} readConversation = {readConversation}/>
+      );
+    }
 
   const ConversationContainer = ()=>(
       <Grid className = {style.convContainer}>
         {conversations.map((el)=>(showConversations(el)))}
-    </Grid>
+      </Grid>
   )
 
   const TheMessageBadge = ()=>{
@@ -121,9 +110,6 @@ const SideBarList = ()=>{
     }
   }
 
-
-
-
   return(
     <React.Fragment>
       <Tabs
@@ -132,19 +118,13 @@ const SideBarList = ()=>{
           variant="fullWidth"
           indicatorColor="primary"
           textColor="primary"
-
           >
           <Tab  value = {1} className = {style.tabs} icon = {<TheMessageBadge />} label = 'Messages' />
           <Tab  value = {2} className = {style.tabs} label = {onlineUsers.length === 1 ? 'Online 0' : 'Online ' + (onlineUsers.length - 1)} icon = {<BsFillPersonFill size =  {14} />} />
         </Tabs>
-
-        {value === 1 ? <ConversationContainer  /> : <OnlineUsersList closeSlide = {closeSlide} onlineUsers = {onlineUsers} id = {id} selectOnlineUser = {selectOnlineUser} loadMessages = {loadMessages} />}
-
+          {value === 1 ? <ConversationContainer  /> : <OnlineUsersList closeSlide = {closeSlide} onlineUsers = {onlineUsers} id = {id} selectOnlineUser = {selectOnlineUser} loadMessages = {loadMessages} />}
       </React.Fragment>
   );
-
-
-
 }
 
 

@@ -7,14 +7,12 @@ import _ from 'lodash';
 
 const newStyle = makeStyles(()=>({
   container : {
-
-    //height : '1em',
     color : 'white',
     height : '3em',
     paddingLeft : 20,
     backgroundColor : '#18363f'
   }
-}))
+}));
 
 
 const ChatHeader = ({width})=>{
@@ -22,15 +20,13 @@ const ChatHeader = ({width})=>{
   const [activeChat,activeUser] = useSelector((state)=> [state.activeChat,state.activeUser]);
   const style = newStyle();
 
-
-
   return (
       <React.Fragment>
       <Grid
         container
         direction = 'row'
         alignItmes = 'center'
-        justify = 'space-between'
+        justifyContent = 'space-between'
         className = {style.container}
       >
 

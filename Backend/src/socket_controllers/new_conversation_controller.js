@@ -4,7 +4,6 @@ const UserModel = require('../models/users_model');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
-
 const newConversation = async (io,allOnlineUsers,message)=>{
 
    try{
@@ -48,7 +47,6 @@ const newConversation = async (io,allOnlineUsers,message)=>{
         }
 
         // TODO: Create a function to filter each reciever so his name wont be in the partecipants array
-
         const senderConv = {
           conv_id : updatedConv._id,
           partecipants : _.map(_.filter(updatedConv.partecipants,(part)=>(part.user_id != message.sender_id)),(el)=>({username : el.username})),
@@ -78,13 +76,11 @@ const newConversation = async (io,allOnlineUsers,message)=>{
       // TODO: When user has 'deleted' conversation...
     }
 
-
-
   }catch(err){
     console.log(err);
   }
 }
-/////////////////////////
+
 
 
 module.exports = newConversation;

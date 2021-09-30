@@ -42,7 +42,6 @@ const getConversationsList = async (req,res)=>{
 
 ////////////////////////////////////////////
 
-
 const getConversationsMessages = async (req,res)=>{
   const token = req.params.token;
   const convId = req.params.conv_id;
@@ -51,19 +50,17 @@ const getConversationsMessages = async (req,res)=>{
     const decoded = jwt.verify(token,privateKey);
 
     //Set as read all messages where user is partecipant
-    const read = await ConversationModel.update({'conversation.conv_id' : convId },{$set : {'conversation.$[msg].read_list.$[part].read' : true }},{arrayFilters : [{'part.read' : false  },{'msg.sender_id' : {$ne : decoded.data._id}}]}).exec();
+    await ConversationModel.updateOne({'conversation.conv_id' : convId },{$set : {'conversation.$[msg].read_list.$[part].read' : true }},{arrayFilters : [{'part.read' : false  },{'msg.sender_id' : {$ne : decoded.data._id}}]}).exec();
 
     const result = await ConversationModel.findById(convId).exec();
     if(result != null){
-    res.json(result.conversation);
-  }else{
-    console.log('empty');
-    res.json([]);
-  }
+      res.json(result.conversation);
+    }else{
+     res.json([]);
+    }
   }catch(err){
     res.json(err.message);
   }
 }
-
 
 module.exports = {getConversationsList,getConversationsMessages}

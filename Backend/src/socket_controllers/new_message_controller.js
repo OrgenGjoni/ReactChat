@@ -5,12 +5,10 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
 
-
 const newMessage = async (io,allOnlineUsers,message)=>{
    try{
   const conversation = await ConversationModel.findById(message.conv_id);
   //Set message read_status to false
-
 
     if(conversation == null){
         // TODO: In case of wrong conversation _id
@@ -30,12 +28,8 @@ const newMessage = async (io,allOnlineUsers,message)=>{
         partecipants.map((el)=>{
           const reciever = _.find(allOnlineUsers,(usr)=>(usr._id == el.user_id));
           typeof reciever != 'undefined' ? io.to(reciever.connection_id).emit('newmessage',message) : null
-        })
-
-
+        });
     }
-
-
 
   }catch(err){
     console.log(err);

@@ -1,6 +1,5 @@
 class OnlineUsers {
 
-
   constructor(){
     this.usersArray = [];
     this.toDisconnect = [];
@@ -34,7 +33,6 @@ class OnlineUsers {
       this.usersArray.push(newUser);
     }
   }
-
 
   remove(user){
     const filteredUsers = this.usersArray.filter((el)=>(el._id !== user._id));

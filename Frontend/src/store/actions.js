@@ -61,6 +61,7 @@ export const fetchConversations = (payload)=>{
     fetch(payload)
       .then((res)=>(res.json()))
       .then((res)=>{dispatch(setConversationsList(res))})
+      .catch((err)=>{console.log(err)});
   }
 }
 
@@ -69,5 +70,6 @@ export const loadMessages = (payload)=>{
     fetch(payload)
       .then((res)=>(res.json()))
       .then((res)=>(dispatch(setMessages(res))))
+      .catch((err)=>{console.log(err)});
   }
 }

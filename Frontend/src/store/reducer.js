@@ -24,13 +24,11 @@ const initialState = {
 
 const rootReducer = (state = initialState, action)=>{
 
-
   switch (action.type) {
     case SET_ID :
       return Object.assign({}, state, {
         id : action.payload
       });
-
 
     case SET_ONLINE_LIST :
 
@@ -45,19 +43,17 @@ const rootReducer = (state = initialState, action)=>{
         activeUser : false
       });
 
-    case SET_ACTIVE_USER : {
+    case SET_ACTIVE_USER : 
       return Object.assign({}, state, {
         activeUser : action.payload,
         activeChat : false
       });
-    }
 
     case SET_CONVERSATIONS_LIST :
 
       return Object.assign({},state,{
         conversations : action.payload
-      })
-
+      });
 
     case SET_MESSAGES :
 
@@ -77,7 +73,6 @@ const rootReducer = (state = initialState, action)=>{
     default:
       return state;
   }
-
 
 }
 
